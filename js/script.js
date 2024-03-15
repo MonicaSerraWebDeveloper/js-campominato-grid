@@ -9,8 +9,10 @@ const gridGame = document.querySelector('.grid');
 console.log(gridGame);
 
 for (let i = 1; i <= 100; i++) {
-
-    
+    let squareDiv = document.createElement('div');
+    squareDiv.classList.add('square');
+    squareDiv.innerHTML += `<span>${i}</span>`
+    console.log(squareDiv);
 }
 
 // Click sul pulsante "play" per far comparire la griglia con un display: block

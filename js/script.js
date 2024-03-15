@@ -15,6 +15,10 @@ for (let i = 1; i <= 100; i++) {
     gridGame.append(squareGenerated);
 }
 
+// FUNCTIONS
+// La funzione ha lo scopo di generare delle celle chiamate square con numeri all'interno da 1 a 100
+// number -> è un numero 
+// return: l'elemento div che abbiamo creato a cui abbiamo aggiunto la classe .square con all'interno uno span e dentro lo span l'argomento number
 function squareGenerator(number) {
     let squareDiv = document.createElement('div');
     squareDiv.classList.add('square');

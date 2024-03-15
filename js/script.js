@@ -27,7 +27,7 @@ playStartTheGame.addEventListener('click', function () {
 
         for (let i = 1; i <= 100; i++) {
     
-            let squareGenerated = squareGenerator(i)
+            let squareGenerated = squareGenerator(i, myOptions)
           
             gridGame.append(squareGenerated);
         
@@ -41,9 +41,9 @@ playStartTheGame.addEventListener('click', function () {
         gridGame.style.display = 'none'
         gridGameHard.style.display = 'none'
 
-        for (let m = 1; m <= 81; m++) {
+        for (let i = 1; i <= 81; i++) {
     
-            let squareGenerated = squareGenerator(m)
+            let squareGenerated = squareGenerator(i, myOptions)
           
             gridGameMedium.append(squareGenerated);
         
@@ -59,7 +59,7 @@ playStartTheGame.addEventListener('click', function () {
 
         for (let i = 1; i <= 49; i++) {
     
-            let squareGenerated = squareGenerator(i)
+            let squareGenerated = squareGenerator(i, myOptions)
           
             gridGameHard.append(squareGenerated);
         
@@ -78,9 +78,21 @@ playStartTheGame.addEventListener('click', function () {
 // La funzione ha lo scopo di generare delle celle chiamate square con numeri all'interno da 1 a 100
 // number -> è un numero 
 // return: l'elemento div che abbiamo creato a cui abbiamo aggiunto la classe .square con all'interno uno span e dentro lo span l'argomento number
-function squareGenerator(number) {
+function squareGenerator(number, option) {
     let squareDiv = document.createElement('div');
-    squareDiv.classList.add('square-hard');
+    if (option === 'easy') {
+        squareDiv.classList.add('square');
+        squareDiv.classList.remove('square-medium');
+        squareDiv.classList.remove('square-hard');
+    } else if (option === 'medium') {
+        squareDiv.classList.remove('square');
+        squareDiv.classList.add('square-medium');
+        squareDiv.classList.remove('square-hard');
+    }else if (option === 'hard') {
+        squareDiv.classList.remove('square');
+        squareDiv.classList.remove('square-medium');
+        squareDiv.classList.add('square-hard');
+    }
     squareDiv.innerHTML += `<span>${number}</span>`
     return squareDiv
 }

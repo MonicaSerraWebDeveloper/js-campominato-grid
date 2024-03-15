@@ -9,12 +9,19 @@ const gridGame = document.querySelector('.grid');
 console.log(gridGame);
 
 for (let i = 1; i <= 100; i++) {
+    
+    let squareGenerated = squareGenerator(i)
+
+    gridGame.append(squareGenerated);
+}
+
+function squareGenerator(number) {
     let squareDiv = document.createElement('div');
     squareDiv.classList.add('square');
-    squareDiv.innerHTML += `<span>${i}</span>`
+    squareDiv.innerHTML += `<span>${number}</span>`
     console.log(squareDiv);
 
-    gridGame.append(squareDiv);
+    return squareDiv
 }
 
 // Click sul pulsante "play" per far comparire la griglia con un display: block

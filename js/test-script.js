@@ -2,32 +2,52 @@
 const gridGame = document.querySelector('.grid');
 const playStartTheGame = document.querySelector('.btn');
 
-const mySelect = document.getElementById('livello').value;
+// richiamiamo il valore delle option nel select 
+const mySelect = document.querySelector('#livello').value
 console.log(mySelect);
+
+//invochiamo la funzione per definire quante celle genare in base al livello
+let howManyCells = difficultyLevel (mySelect)
+console.log(howManyCells);
+
+// specifichiamo all'evento listener del click che si deve attivare una volta 
+let generateEventGrid = false;
 
 playStartTheGame.addEventListener('click', function () {
     gridGame.style.display = 'flex'
-    for (let i = 1; i <= 100; i++) {
-        
-        let squareGenerated = squareGenerator(i)
+    if (!generateEventGrid) {
+        generateEventGrid = true
     
-        gridGame.append(squareGenerated);
+        for (let i = 1; i <= howManyCells; i++) {
+        
+            let squareGenerated = squareGenerator(i, mySelect)
 
-        squareGenerated.addEventListener('click', function() {
-            this.classList.toggle('square-blue')
-            console.log(i);
-        })
+            gridGame.append(squareGenerated);
+
+            squareGenerated.addEventListener('click', function() {
+                this.classList.toggle('square-blue')
+                console.log(i);
+            })
+        }
     }
+    
 });
 
 // FUNCTIONS
 // La funzione ha lo scopo di generare delle celle chiamate square con numeri all'interno da 1 a 100
 // number -> è un numero 
 // return: l'elemento div che abbiamo creato a cui abbiamo aggiunto la classe .square con all'interno uno span e dentro lo span l'argomento number
-
-function squareGenerator(number) {
+function squareGenerator(number, inputDifficulty) {
     let squareDiv = document.createElement('div');
-    squareDiv.classList.add('square');
+    let classCells;
+    if (inputDifficulty === 'easy') {
+        classCells = 'square';
+    } else if (inputDifficulty === 'medium') {
+        classCells = 'square-medium';
+    } else if (inputDifficulty === 'hard') {
+        classCells = 'square-hard';
+    }
+    squareDiv.classList.add(classCells);
     squareDiv.innerHTML += `<span>${number}</span>`
     return squareDiv
 }
@@ -36,9 +56,6 @@ function squareGenerator(number) {
 // Funzione per generare un numero diverso di celle in base alla difficoltà di livello selezionata
 // numberCells -> un numero 
 // return: ritorna il numero di celle in base alla difficolta scelta nell'input select
-let howManyCells = difficultyLevel (mySelect)
-console.log(howManyCells);
-
 function difficultyLevel (input) {
     let numberCells;
     if (input === 'easy') {
@@ -48,6 +65,6 @@ function difficultyLevel (input) {
     } else if (input === 'hard') {
         numberCells = 49;
     }
-    console.log(numberCells);
+    return numberCells
 }
 

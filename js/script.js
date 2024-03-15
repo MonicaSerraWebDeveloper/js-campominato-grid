@@ -6,14 +6,24 @@
 
 
 const gridGame = document.querySelector('.grid');
-console.log(gridGame);
 
 for (let i = 1; i <= 100; i++) {
     
     let squareGenerated = squareGenerator(i)
-
+  
     gridGame.append(squareGenerated);
+
+
+
 }
+
+const playStartTheGame = document.querySelector('.btn');
+console.log(playStartTheGame);
+
+playStartTheGame.addEventListener('click', function () {
+    gridGame.style.opacity = '1'
+});
+
 
 // FUNCTIONS
 // La funzione ha lo scopo di generare delle celle chiamate square con numeri all'interno da 1 a 100
@@ -23,7 +33,6 @@ function squareGenerator(number) {
     let squareDiv = document.createElement('div');
     squareDiv.classList.add('square');
     squareDiv.innerHTML += `<span>${number}</span>`
-    console.log(squareDiv);
 
     return squareDiv
 }

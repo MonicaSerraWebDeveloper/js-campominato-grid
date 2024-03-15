@@ -13,6 +13,8 @@ for (let i = 1; i <= 100; i++) {
     squareDiv.classList.add('square');
     squareDiv.innerHTML += `<span>${i}</span>`
     console.log(squareDiv);
+
+    gridGame.append(squareDiv);
 }
 
 // Click sul pulsante "play" per far comparire la griglia con un display: block

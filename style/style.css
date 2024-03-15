@@ -127,6 +127,31 @@ main {
 
 
 /*--------------------
+        BONUS
+----------------------*/
+
+.square-medium {
+    border: 1px solid #000;
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.square-hard {
+    border: 1px solid #000;
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+/*--------------------
         FOOTER
 ----------------------*/
 

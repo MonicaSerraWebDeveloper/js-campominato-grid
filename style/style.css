@@ -7,3 +7,61 @@
     box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+}
+
+/*--------------------
+        GENERAL
+----------------------*/
+
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*--------------------
+        TYPOGRAPHY
+----------------------*/
+
+h1 {
+    font-size: 26px;
+}
+
+
+/*--------------------
+        HEADER
+----------------------*/
+
+header {
+    background-color: #fff;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 0;
+}
+
+.logo-container img {
+    width: 50px;
+}
+
+button {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    padding: 1px 25px;
+    border: 1px solid grey;
+    border-radius: 4px;
+}

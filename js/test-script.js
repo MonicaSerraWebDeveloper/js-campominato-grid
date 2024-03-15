@@ -3,8 +3,7 @@ const gridGame = document.querySelector('.grid');
 const playStartTheGame = document.querySelector('.btn');
 
 // richiamiamo il valore delle option nel select 
-const mySelect = document.querySelector('#livello').value
-console.log(mySelect);
+const mySelect = document.querySelector('.select').value
 
 //invochiamo la funzione per definire quante celle genare in base al livello
 let howManyCells = difficultyLevel (mySelect)
@@ -67,4 +66,3 @@ function difficultyLevel (input) {
     }
     return numberCells
 }
-

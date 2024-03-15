@@ -98,7 +98,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    display: none;
+    /* display: none; */
 }
 
 .square {

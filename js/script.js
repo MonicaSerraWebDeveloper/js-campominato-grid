@@ -7,24 +7,32 @@
 
 const gridGame = document.querySelector('.grid');
 
-for (let i = 1; i <= 100; i++) {
-    
-    let squareGenerated = squareGenerator(i)
-  
-    gridGame.append(squareGenerated);
+const mySelect = document.querySelector('.select');
 
-    squareGenerated.addEventListener('click', function() {
-        this.classList.toggle('square-blue')
-        console.log(i);
-    })
-}
+let myOptions =  '';
+mySelect.addEventListener('change', function() {
+    myOptions = this.value
+})
 
 const playStartTheGame = document.querySelector('.btn');
-console.log(playStartTheGame);
 
 playStartTheGame.addEventListener('click', function () {
-    gridGame.style.opacity = '1'
+    if (myOptions === 'easy') { 
+        gridGame.style.opacity = '1'
+    }
+    for (let i = 1; i <= 100; i++) {
+    
+        let squareGenerated = squareGenerator(i)
+      
+        gridGame.append(squareGenerated);
+    
+        squareGenerated.addEventListener('click', function() {
+            this.classList.toggle('square-blue')
+            console.log(i);
+        })
+    }
 });
+
 
 
 // FUNCTIONS

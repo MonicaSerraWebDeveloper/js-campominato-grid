@@ -67,6 +67,7 @@ button {
     padding: 1px 25px;
     border: 1px solid grey;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 /*--------------------
@@ -97,12 +98,20 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    display: none;
 }
 
 .square {
-    border: 2px solid red;
+    border: 1px solid #000;
     width: calc(100% / 10);
     height: calc(100% / 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square-blue {
+    background-color: lightskyblue;
 }
 
 

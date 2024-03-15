@@ -13,8 +13,10 @@ for (let i = 1; i <= 100; i++) {
   
     gridGame.append(squareGenerated);
 
-
-
+    squareGenerated.addEventListener('click', function() {
+        this.classList.toggle('square-blue')
+        console.log(i);
+    })
 }
 
 const playStartTheGame = document.querySelector('.btn');

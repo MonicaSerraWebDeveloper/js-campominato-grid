@@ -9,14 +9,6 @@ const gridGame = document.querySelector('.grid');
 const gridGameMedium = document.querySelector('.grid-medium');
 const gridGameHard = document.querySelector('.grid-hard');
 
-
-
-
-// let myOptions =  '';
-// mySelect.addEventListener('change', function() {
-//     myOptions = this.value
-// })
-
 const playStartTheGame = document.querySelector('.btn');
 
 playStartTheGame.addEventListener('click', function () {
@@ -98,6 +90,23 @@ function squareGenerator(number, option) {
     squareDiv.innerHTML += `<span>${number}</span>`
     return squareDiv
 }
+
+
+// Funzione per generare un numero diverso di celle in base alla difficoltà di livello selezionata
+// numberCells -> un numero 
+// return: ritorna il numero di celle in base alla difficolta scelta nell'input select
+function difficultyLevel (input) {
+    let numberCells;
+    if (input === 'easy') {
+        numberCells = 100;
+    } else if (input === 'medium') {
+        numberCells = 81;
+    } else if (input === 'hard') {
+        numberCells = 49;
+    }
+    return numberCells
+}
+
 
 // Click sul pulsante "play" per far comparire la griglia con un display: block
 // Creare gli square con numeri da 1 a 100

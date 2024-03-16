@@ -2,26 +2,21 @@
 const gridGame = document.querySelector('.grid');
 const playStartTheGame = document.querySelector('.btn');
 
-
-// specifichiamo all'evento listener del click che si deve attivare una volta 
-let generateEventGrid = false;
-
 playStartTheGame.addEventListener('click', function () {
     // richiamiamo il valore delle option nel select 
-    const mySelect = document.querySelector('.select').value
+    const mySelect = document.querySelector('.select').value;
+    console.log(mySelect);
+
     //invochiamo la funzione per definire quante celle genare in base al livello
     let howManyCells = difficultyLevel (mySelect)
     console.log(howManyCells);
 
     gridGame.style.display = 'flex'
-    
-    if (!generateEventGrid) {
-        generateEventGrid = true
-    
+
+    gridGame.innerHTML = '';
         for (let i = 1; i <= howManyCells; i++) {
         
             let squareGenerated = squareGenerator(i, mySelect)
-
             gridGame.append(squareGenerated);
 
             squareGenerated.addEventListener('click', function() {
@@ -29,7 +24,6 @@ playStartTheGame.addEventListener('click', function () {
                 console.log(i);
             })
         }
-    }
 });
 
 // FUNCTIONS

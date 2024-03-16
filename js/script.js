@@ -72,21 +72,17 @@ playStartTheGame.addEventListener('click', function () {
 // La funzione ha lo scopo di generare delle celle chiamate square con numeri all'interno da 1 a 100
 // number -> è un numero 
 // return: l'elemento div che abbiamo creato a cui abbiamo aggiunto la classe .square con all'interno uno span e dentro lo span l'argomento number
-function squareGenerator(number, option) {
+function squareGenerator(number, inputDifficulty) {
     let squareDiv = document.createElement('div');
-    if (option === 'easy') {
-        squareDiv.classList.add('square');
-        squareDiv.classList.remove('square-medium');
-        squareDiv.classList.remove('square-hard');
-    } else if (option === 'medium') {
-        squareDiv.classList.remove('square');
-        squareDiv.classList.add('square-medium');
-        squareDiv.classList.remove('square-hard');
-    }else if (option === 'hard') {
-        squareDiv.classList.remove('square');
-        squareDiv.classList.remove('square-medium');
-        squareDiv.classList.add('square-hard');
+    let classCells;
+    if (inputDifficulty === 'easy') {
+        classCells = 'square';
+    } else if (inputDifficulty === 'medium') {
+        classCells = 'square-medium';
+    } else if (inputDifficulty === 'hard') {
+        classCells = 'square-hard';
     }
+    squareDiv.classList.add(classCells);
     squareDiv.innerHTML += `<span>${number}</span>`
     return squareDiv
 }

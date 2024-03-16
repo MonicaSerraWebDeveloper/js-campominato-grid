@@ -10,24 +10,26 @@ const gridGameMedium = document.querySelector('.grid-medium');
 const gridGameHard = document.querySelector('.grid-hard');
 
 
-const mySelect = document.querySelector('.select');
 
-let myOptions =  '';
-mySelect.addEventListener('change', function() {
-    myOptions = this.value
-})
+
+// let myOptions =  '';
+// mySelect.addEventListener('change', function() {
+//     myOptions = this.value
+// })
 
 const playStartTheGame = document.querySelector('.btn');
 
 playStartTheGame.addEventListener('click', function () {
-    if (myOptions === 'easy') { 
+    const mySelect = document.querySelector('#livello').value;
+    console.log(mySelect);
+    if (mySelect === 'easy') { 
         gridGame.style.display = 'flex'
         gridGameHard.style.display = 'none'
         gridGameMedium.style.display = 'none'
 
         for (let i = 1; i <= 100; i++) {
     
-            let squareGenerated = squareGenerator(i, myOptions)
+            let squareGenerated = squareGenerator(i, mySelect)
           
             gridGame.append(squareGenerated);
         
@@ -36,14 +38,14 @@ playStartTheGame.addEventListener('click', function () {
                 console.log(i);
             })
         } 
-    } else if (myOptions === 'medium') {
+    } else if (mySelect === 'medium') {
         gridGameMedium.style.display = 'flex'
         gridGame.style.display = 'none'
         gridGameHard.style.display = 'none'
 
         for (let i = 1; i <= 81; i++) {
     
-            let squareGenerated = squareGenerator(i, myOptions)
+            let squareGenerated = squareGenerator(i, mySelect)
           
             gridGameMedium.append(squareGenerated);
         
@@ -52,14 +54,14 @@ playStartTheGame.addEventListener('click', function () {
                 console.log(i);
             })
         } 
-    } else if (myOptions === 'hard') {
+    } else if (mySelect === 'hard') {
         gridGameHard.style.display = 'flex'
         gridGameMedium.style.display = 'none'
         gridGame.style.display = 'none'
 
         for (let i = 1; i <= 49; i++) {
     
-            let squareGenerated = squareGenerator(i, myOptions)
+            let squareGenerated = squareGenerator(i, mySelect)
           
             gridGameHard.append(squareGenerated);
         

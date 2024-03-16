@@ -6,63 +6,12 @@
 
 
 const gridGame = document.querySelector('.grid');
-const gridGameMedium = document.querySelector('.grid-medium');
-const gridGameHard = document.querySelector('.grid-hard');
+
 
 const playStartTheGame = document.querySelector('.btn');
 
 playStartTheGame.addEventListener('click', function () {
-    const mySelect = document.querySelector('#livello').value;
-    console.log(mySelect);
-    if (mySelect === 'easy') { 
-        gridGame.style.display = 'flex'
-        gridGameHard.style.display = 'none'
-        gridGameMedium.style.display = 'none'
 
-        for (let i = 1; i <= 100; i++) {
-    
-            let squareGenerated = squareGenerator(i, mySelect)
-          
-            gridGame.append(squareGenerated);
-        
-            squareGenerated.addEventListener('click', function() {
-                this.classList.toggle('square-blue')
-                console.log(i);
-            })
-        } 
-    } else if (mySelect === 'medium') {
-        gridGameMedium.style.display = 'flex'
-        gridGame.style.display = 'none'
-        gridGameHard.style.display = 'none'
-
-        for (let i = 1; i <= 81; i++) {
-    
-            let squareGenerated = squareGenerator(i, mySelect)
-          
-            gridGameMedium.append(squareGenerated);
-        
-            squareGenerated.addEventListener('click', function() {
-                this.classList.toggle('square-blue')
-                console.log(i);
-            })
-        } 
-    } else if (mySelect === 'hard') {
-        gridGameHard.style.display = 'flex'
-        gridGameMedium.style.display = 'none'
-        gridGame.style.display = 'none'
-
-        for (let i = 1; i <= 49; i++) {
-    
-            let squareGenerated = squareGenerator(i, mySelect)
-          
-            gridGameHard.append(squareGenerated);
-        
-            squareGenerated.addEventListener('click', function() {
-                this.classList.toggle('square-blue')
-                console.log(i);
-            })
-        } 
-    }
  
 });
 
